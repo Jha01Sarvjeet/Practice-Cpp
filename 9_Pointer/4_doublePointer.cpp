@@ -14,8 +14,14 @@ int main()
     cout<<endl;
     cout<<endl;
     cout<<endl;
+    //to print value of a
+    cout<<a<<endl;
     cout<<*ptr<<endl; //print value at ptr
     cout<<**ptr1<<endl;//print value at the address stored by it
+    //to print address of a
+    cout<<&a<<endl;
+    cout<<ptr<<endl;
+    cout<<*ptr1<<endl;
    
 
     return 0;
