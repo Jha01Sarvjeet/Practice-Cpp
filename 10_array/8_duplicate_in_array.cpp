@@ -4,7 +4,8 @@ using namespace std;
 bool duplicate(int arr[], int n)
 
 {
-    map<int,int>mpp;
+    //brute force approach
+
     // for (int i = 0; i < n; i++)
     // {
     //     int count = 0;
@@ -19,6 +20,8 @@ bool duplicate(int arr[], int n)
         
     // }
     // return false;
+    //using extra space  
+    map<int,int>mpp;
     for (int i = 0; i < n; i++)
     {
         mpp[arr[i]]++;
