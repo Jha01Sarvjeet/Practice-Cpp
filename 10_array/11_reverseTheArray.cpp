@@ -3,12 +3,17 @@
 using namespace std;
 //to reverse the array
 void reverseArray(int arr[] ,int n){
-    int i=0;
-    int j=n-1;
-    while(i<=j){
+    //using while loop
+    // int i=0;
+    // int j=n-1;
+    // while(i<=j){
+    //     swap(arr[i],arr[j]);
+    //     i++;
+    //     j--;
+    // }
+    //using for loop
+    for(int i=0,j=n-1;i<=j;i++,j--){
         swap(arr[i],arr[j]);
-        i++;
-        j--;
     }
 
 }
