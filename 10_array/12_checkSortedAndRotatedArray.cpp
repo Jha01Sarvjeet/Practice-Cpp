@@ -1,6 +1,6 @@
 #include <iostream>
 #include <bits/stdc++.h>
-// to check that the array is sorted and rotated
+// to check that the array is sorted and rotated(leetcode 1752)
 using namespace std;
 bool sortedRotated(int *arr, int n)
 {
