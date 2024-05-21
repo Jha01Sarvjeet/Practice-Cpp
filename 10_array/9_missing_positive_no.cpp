@@ -19,7 +19,7 @@ elements.*/
 //     return -1;
 // }
 //Using hash map
-int missing_number(int arr[],int n){
+int missing_number(int *arr,int n){
     map<int,int>mpp;
     for(int i=0;i<n;i++){
         mpp[arr[i]]++;
