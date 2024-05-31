@@ -7,25 +7,31 @@ int rainWatertrapping(vector<int> nums)
      int n = nums.size();
      int ans = 0;
      vector<int> prev(nums.size());
-     vector<int> next(nums.size());
-     int Max = nums[n - 1];
-     next[n - 2] = -1;
-     for (int i = n - 2; i >= 0; i--)
-     {
-          next[i] = Max;
-          Max = max(Max, nums[i]);
-     }
+     // vector<int> next(nums.size());
+
+     int Max = nums[0];
+     // finding prev maximum
      prev[0] = -1;
-     Max = nums[0];
      for (int i = 1; i < n; i++)
      {
           prev[i] = Max;
           Max = max(Max, nums[i]);
      }
-     for (int i = 1; i < n - 1; i++)
+     Max = nums[n - 1];
+     prev[n - 2] = -1;
+
+     // finding next maximum
+     for (int i = n - 2; i >= 0; i--)
      {
-          prev[i] = min(prev[i], next[i]);
+          prev[i]=min(Max,prev[i]);
+          Max = max(Max, nums[i]);
+
      }
+     
+     // for (int i = 1; i < n - 1; i++)
+     // {
+     //      prev[i] = min(prev[i], prev[i]);
+     // }
      for (int i = 1; i < n - 1; i++)
      {
           if (nums[i] < prev[i])
@@ -35,6 +41,7 @@ int rainWatertrapping(vector<int> nums)
      }
 
      return ans;
+     // return next_permutation(nums);
 }
 
 int main()
