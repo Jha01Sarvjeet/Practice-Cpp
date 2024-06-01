@@ -18,7 +18,7 @@ int rainWatertrapping(vector<int> nums)
           Max = max(Max, nums[i]);
      }
      Max = nums[n - 1];
-     prev[n - 2] = -1;
+     prev[n - 1] = -1;
 
      // finding next maximum
      for (int i = n - 2; i >= 0; i--)
@@ -46,7 +46,8 @@ int rainWatertrapping(vector<int> nums)
 
 int main()
 {
-     vector<int> nums = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+     // vector<int> nums = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+     vector<int> nums = {1,8,6,2,5,4,8,3,7};
      int ans = rainWatertrapping(nums);
      cout << ans;
 
