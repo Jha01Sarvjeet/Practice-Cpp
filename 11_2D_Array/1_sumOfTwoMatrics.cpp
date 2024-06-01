@@ -10,7 +10,7 @@ for(int i=0;i<2;i++){
         arr1[i][j]=arr1[i][j]+arr2[i][j];
     }
 }
-//printing gthe array
+//printing the array
 for(int i=0;i<2;i++){
     for(int j=0;j<3;j++){
         cout<<arr1[i][j]<<" ";
