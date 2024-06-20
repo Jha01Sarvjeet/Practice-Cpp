@@ -19,5 +19,10 @@ int main(){
     // cout<<str<<endl;
     // str.pop_back();
     // cout<<str<<endl;
+
+
+//'+'  operator:- used to concatinate string
+str=str+" how are you";
+cout<<str<<endl;
      return 0;
 }
