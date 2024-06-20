@@ -9,12 +9,21 @@ string str;
 int count=0;
 cout<<"enter string "<<endl;
 cin>>str;
-for(int i=0;i<str.length();i++){
-     if(str[i]=='a' ||str[i]=='e' ||str[i]=='i' ||str[i]=='o' ||str[i]=='u' ||str[i]=='A' ||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U')
+
+//first approach
+// for(int i=0;i<str.length();i++){
+//      if(str[i]=='a' ||str[i]=='e' ||str[i]=='i' ||str[i]=='o' ||str[i]=='u' ||str[i]=='A' ||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U')
+//           count++;
+// }
+// cout<<"total Number of vowel =  "<<count<<endl;
+
+int i=0;
+while(str[i]!='\0'){
+      if(str[i]=='a' ||str[i]=='e' ||str[i]=='i' ||str[i]=='o' ||str[i]=='u' ||str[i]=='A' ||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U')
           count++;
+     i++;
 }
 cout<<"total Number of vowel =  "<<count<<endl;
-
-    
-     return 0;
 }
+    
+   
