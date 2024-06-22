@@ -15,11 +15,39 @@ public:
     }
 };
 
+// creating single ll 
+//insert at tail
+void insertAtTail(Node * &head,int data){
+    Node * node=new Node(data);
+    Node * temp=head;
+    while(temp->next!=NULL){
+        temp =temp->next;
+    }
+    temp->next=node;
+
+}
+void print(Node * head){
+    Node *temp=head;
+    while(temp!=NULL){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+
+    cout<<endl;
+}
+
+
+
 int main()
 {
     Node *node1 = new Node(5);
-    cout << node1->data << endl;
-    cout << node1->next << endl;
+    print(node1);
+    insertAtTail(node1,10);
+      print(node1);
+      insertAtTail(node1,25);
+      print(node1);
+ insertAtTail(node1,50);
+      print(node1);
 
     return 0;
 }
