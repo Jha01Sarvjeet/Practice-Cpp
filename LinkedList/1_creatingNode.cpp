@@ -18,15 +18,13 @@ public:
 
 // creating single ll
 // insert at tail
-void insertAtTail(Node *&head, int data)
+void insertAtTail(Node *&tail, int data)
 {
     Node *node = new Node(data);
-    Node *temp = head;
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-    }
-    temp->next = node;
+    tail->next=node;
+    tail=node;
+    
+    
 }
 // insert at head
 void insertAtHead(Node *&head, int data)
@@ -51,19 +49,21 @@ void print(Node *head)
 int main()
 {
     Node *node1 = new Node(5);
-    print(node1);
-    insertAtTail(node1, 10);
-    print(node1);
-    insertAtTail(node1, 25);
-    print(node1);
-    insertAtTail(node1, 50);
-    print(node1);
-    insertAtHead(node1,69);
+    Node * head=node1;
+    Node * tail=node1;
+    print(head);
+    insertAtTail(tail, 10);
+    print(head);
+    insertAtTail(tail, 25);
+    print(head);
+    insertAtTail(tail, 50);
+    print(head);
+    insertAtHead(head,69);
 
-    print(node1);
-    insertAtHead(node1,96);
+    print(head);
+    insertAtHead(head,96);
 
-    print(node1);
+    print(head);
 
     return 0;
 }
