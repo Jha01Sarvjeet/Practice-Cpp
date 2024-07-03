@@ -13,6 +13,11 @@ int main()
     {
         cout << "the total number of different neighbour are " << c << endl;
     }
+    else if (str.length()==2){
+        if(str[0] != str[1]){
+            cout<<"the total number of different neighbour are " << 1 << endl;
+        }
+    }
     else
     {
         for (int i = 0; i < str.length(); i++)
