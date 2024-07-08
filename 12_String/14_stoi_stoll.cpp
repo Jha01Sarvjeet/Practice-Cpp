@@ -13,7 +13,7 @@ int main(){
 //      return 0;
 
 //to convert string into long long
-string str="123456684684684";
+string str="1234khb84684684";
 long long num=stoll(str);
 cout<<num<<endl;
     
