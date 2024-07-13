@@ -9,11 +9,24 @@ int sum1ToN(int n){
     
     
 }
+
+//without return
+int sum1ToN(int n,int sum){
+    if(n==0){
+        cout<<sum<<endl;
+        return 0;
+    }
+    
+    sum1ToN(n-1,n+sum);
+    
+    
+}
 int main(){
     int n;
     cout<<"enter n"<<endl;
     cin>>n;
-    cout<<sum1ToN(n)<<endl;
+    // cout<<sum1ToN(n)<<endl;
+    sum1ToN(n,0);
     
      return 0;
 }
