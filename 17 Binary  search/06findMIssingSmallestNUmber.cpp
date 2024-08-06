@@ -32,8 +32,8 @@ int missingNumber(int *arr,int n){
 }
 
 int main(){
-int arr[]={0,2,5,6,9,10};
-cout<<"smallest missing number is "<<missingNumber(arr,6)<<endl;
+int arr[]={0,1,2,3,4,6,7 ,8,9,11};
+cout<<"smallest missing number is "<<missingNumber(arr,10)<<endl;
     
      return 0;
 }
