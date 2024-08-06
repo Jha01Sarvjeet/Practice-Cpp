@@ -13,6 +13,7 @@ using namespace std;
 //         {
 
 //             return arr[mid-1];
+            // break;
 //         }
 //         else if (arr[mid] < target)
 //         {
