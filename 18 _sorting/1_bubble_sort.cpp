@@ -16,6 +16,7 @@ void bubbleSort(vector<int> &arr)
                 swap(arr[j], arr[j + 1]);
             }
         }
+        //checking if part of array is sorted or not 
         if(flag==false){
             return;
         }
