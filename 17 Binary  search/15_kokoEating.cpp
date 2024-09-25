@@ -3,17 +3,19 @@
 #include <bits/stdc++.h> 
 using namespace std;
 bool isValid(vector<int>piles,int mid,int hours){
+    // cout<<mid<<endl;
     int n=piles.size();
     int count=0;
     for(int i=0;i<n;i++){
         if(piles[i]<mid){
             count++;
         }
-        else if(piles[i]>mid){
-            count=count+(piles[i]/mid)+1;
+        else if(piles[i]%mid==0){
+            count+=piles[i]/mid;
+            
         }
         else{
-            count+=piles[i]/mid;
+            count=count+(piles[i]/mid)+1;
         }
     }
     if(count>hours){
