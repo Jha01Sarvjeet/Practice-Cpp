@@ -10,14 +10,42 @@ int main()
     int num[] = {19, 12, 23, 8, 16};
     int n = sizeof(num) / sizeof(num[0]);
     vector<int> track(n, 0);
+    // int x=0;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     int mini = INT_MAX;
+    //     int minIndx = -1;
+    //     for (int j = 0; j < n; j++)
+    //     {
+    //         if (track[j] == 1)
+    //             continue;
+    //         if (num[j] < mini)
+    //         {
+    //             mini = num[j];
+    //             minIndx=j;
+    //         }
+    //     }
+    //     num[minIndx]=x;
+    //     x++;
+    //     track[minIndx]=1;//update track
+    // }
+    // for(int i=0;i<n;i++){
+    //     cout<<num[i]<<" ";
+
+    // }
+    // cout<<endl;
+
+
+
+    //if already mentioned that the number of array is greater than 0 
     int x=0;
-    for (int i = 0; i < n; i++)
+ for (int i = 0; i < n; i++)
     {
         int mini = INT_MAX;
         int minIndx = -1;
         for (int j = 0; j < n; j++)
         {
-            if (track[j] == 1)
+            if (num[j]<=0)
                 continue;
             if (num[j] < mini)
             {
@@ -26,12 +54,14 @@ int main()
             }
         }
         num[minIndx]=x;
-        x++;
-        track[minIndx]=1;//update track
+        x--;
+        
     }
     for(int i=0;i<n;i++){
+        num[i]*=-1;
         cout<<num[i]<<" ";
 
     }
     cout<<endl;
+
 }
