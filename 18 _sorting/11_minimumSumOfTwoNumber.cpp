@@ -32,7 +32,7 @@ int minimumSum(int arr[], int n)
 }
 int main()
 {
-    int arr[] = {6, 8, 4, 5, 2, 3};
-    int minSum = minimumSum(arr, 6);
+    int arr[] = {6, 8, 4, 5, 3};
+    int minSum = minimumSum(arr, 5);
     cout << "minimum sum of the two number formed  : " << minSum << endl;
 }
