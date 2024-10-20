@@ -107,7 +107,7 @@ int main()
         cout << i << " ";
     }
     cout << endl;
-    // mergeSort(arr, 0, arr.size());
+    // mergeSort(arr, 0, arr.size()-1);
     mergeSort(arr);
     for (auto i : arr)
     {
