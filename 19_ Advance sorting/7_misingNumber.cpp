@@ -26,20 +26,54 @@ using namespace std;
 //     }
 // }
 
-// usng XOR operator
+// Using Hash map
 int missingValue(vector<int> arr)
 {
     int n = arr.size();
-    int ans=0;
-    for (int i = 0; i <=n; i++)
+    int hash[n + 1] = {0};
+    for (int i = 0; i < n; i++)
+    {   
+        hash[arr[i]]++;
+    }
+    for (int i = 0; i <= n; i++)
     {
-        ans=ans^i;
+        if (hash[i] == 0)
+            return i;
     }
-    for(int i=0;i<n;i++){
-        ans^=arr[i];
-    }
-    return ans;
 }
+
+// usng XOR operator
+
+// int missingValue(vector<int> arr)
+// {
+//     int n = arr.size();
+//     int ans=0;
+//     for (int i = 0; i <=n; i++)
+//     {
+//         ans=ans^i;
+//     }
+//     for(int i=0;i<n;i++){
+//         ans^=arr[i];
+//     }
+//     return ans;
+// }
+
+// better approach
+
+// int missingValue(vector<int> arr)
+// {
+//     int n = arr.size();
+//     int ans=0;
+//     for (int i = 0; i <=n; i++)
+//     {
+//         ans=ans^i;
+//     }
+//     for(int i=0;i<n;i++){
+//         ans^=arr[i];
+//     }
+//     return ans;
+// }
+
 int main()
 {
     vector<int> arr = {9, 6, 4, 2, 3, 5, 7, 0, 1};
@@ -47,5 +81,5 @@ int main()
         cout << i << " ";
     cout << endl;
     int missValue = missingValue(arr);
-    cout <<"missing Value in array is "<<missValue<<endl;
+    cout << "missing Value in array is " << missValue << endl;
 }
