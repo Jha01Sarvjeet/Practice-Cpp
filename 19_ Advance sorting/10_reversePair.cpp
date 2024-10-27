@@ -33,18 +33,17 @@ int c = 0;
 int countRevPair(vector<int> &arr, int s, int mid, int e)
 {
     int count = 0;
-    int j = mid + 1; // Initialize j outside the loop
+    int j = mid + 1;
 
     for (int i = s; i <= mid; i++)
-    // {   int j = mid + 1;
-    // Move j forward only if condition is met
+
     {
         while (j <= e && arr[i] > 2 * arr[j])
         {
             j++;
         }
-        // Count valid j's for the current i
-        count += (j - (mid + 1)); // Count valid pairs
+
+        count += (j - (mid + 1));
     }
     return count;
 }
@@ -59,8 +58,8 @@ void merge(vector<int> &arr, int s, int mid, int e)
     while (i <= mid && j <= e)
     {
         if (arr[i] <= arr[j])
-        {                         // Correct condition for merging
-            temp[k++] = arr[i++]; // Store the smaller element
+        {
+            temp[k++] = arr[i++];
         }
         else
         {
@@ -88,9 +87,9 @@ int reversePair(vector<int> &arr, int s, int e)
         return count;
 
     int mid = s + (e - s) / 2;
-    count+=reversePair(arr, s, mid);
-    count+=reversePair(arr, mid + 1, e);
-    count+=countRevPair(arr, s, mid, e);
+    count += reversePair(arr, s, mid);
+    count += reversePair(arr, mid + 1, e);
+    count += countRevPair(arr, s, mid, e);
     merge(arr, s, mid, e);
 
     return count;
