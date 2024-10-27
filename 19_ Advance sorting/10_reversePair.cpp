@@ -8,6 +8,9 @@ nums[i] > 2 * nums[j].*/
 #include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
+
+//Brute Force approach
+
 int reversePair(vector<int> arr)
 {
     int count = 0;
