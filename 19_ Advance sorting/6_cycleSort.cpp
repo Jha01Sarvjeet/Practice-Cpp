@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
+//for all distict element
 void cycleSort(vector<int> &arr)
 {
     int s = 0;
@@ -19,6 +20,8 @@ void cycleSort(vector<int> &arr)
         }
     }
 }
+
+ 
 
 #include <bits/stdc++.h>
 #include <iostream>
