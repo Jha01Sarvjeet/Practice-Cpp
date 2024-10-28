@@ -2,16 +2,30 @@
 #include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
-vector<int> prefSum(vector<int>& arr)
+// with extra space
+//  vector<int> prefSum(vector<int>& arr)
+//  {
+//      vector<int> prefixArray(arr.size());
+//      int n = arr.size();
+//      prefixArray[0]=arr[0];
+//      for (int i = 1; i < n; i++)
+//      {
+//          prefixArray[i] = prefixArray[i - 1] + arr[i];
+//      }
+//      return prefixArray;
+//  }
+
+// without extra space
+vector<int> prefSum(vector<int> &arr)
 {
-    vector<int> prefixArray(arr.size());
+
     int n = arr.size();
-    prefixArray[0]=arr[0];
+
     for (int i = 1; i < n; i++)
     {
-        prefixArray[i] = prefixArray[i - 1] + arr[i];
+        arr[i] = arr[i - 1] + arr[i];
     }
-    return prefixArray;
+    return arr;
 }
 int main()
 {
@@ -20,7 +34,7 @@ int main()
     for (auto i : arr)
         cout << i << " ";
     cout << endl;
-    vector<int> ans=prefSum(arr);
+    vector<int> ans = prefSum(arr);
     for (auto i : ans)
         cout << i << " ";
     cout << endl;
