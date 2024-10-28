@@ -9,10 +9,23 @@ using namespace std;
 vector<int> duplicateNu(vector<int> arr)
 {
     int n = arr.size();
-    for (int i = 0; i < n; i++)
+    // for (int i = 0; i < n; i++)
+    // {
+    //     while (arr[i] != arr[arr[i] - 1])
+    //         swap(arr[i], arr[arr[i] - 1]);
+    // }
+
+    int i = 0;
+
+    while (i < n)
     {
-        while (arr[i] != arr[arr[i] - 1])
-            swap(arr[i], arr[arr[i] - 1]);
+        int correctIndex = arr[i] - 1;
+        if (arr[i] == arr[correctIndex] || i == correctIndex)
+            i++;
+        else
+        {
+            swap(arr[i], arr[correctIndex]);
+        }
     }
     for (auto i : arr)
         cout << i << " ";
