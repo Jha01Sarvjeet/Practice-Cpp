@@ -10,67 +10,85 @@ Output: [24,12,8,6]*/
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
+// vector<int> multiple(vector<int> arr)
+// {
+//     int n = arr.size();
+//     int mul1 = 1;
+//     int mul2 = 1;
+//     int zeroCount = 0;
+//     for (auto i : arr)
+//         if (i == 0)
+//             zeroCount++;
+//     if (zeroCount > 1)
+//     {
+//         for (int i = 0; i < n; i++)
+//             arr[i] = 0;
+//         return arr;
+//     }
+//     else if (zeroCount == 1)
+//     {
+//         for (int i = 0; i < n; i++)
+//         {
+//             if (arr[i] != 0)
+//                 mul2 = mul2 * arr[i];
+//         }
+//         for (int i = 0; i < n; i++)
+//         {
+//             if (arr[i] != 0)
+//                 arr[i] = 0;
+//             else
+//             {
+//                 arr[i] =mul2;
+//             }
+//         }
+//         return arr;
+//     }
+//     else
+//     {
+//         for (int i = 0; i < n; i++)
+//         {
+
+//             mul1 = mul1 * arr[i];
+//         }
+//         for (int i = 0; i < n; i++)
+//         {
+//             arr[i] = mul1/arr[i];
+//         }
+//         return arr;
+//     }
+// }
 vector<int> multiple(vector<int> arr)
 {
     int n = arr.size();
-    int mul1 = 1;
-    int mul2 = 1;
-    int zeroCount = 0;
-    for (auto i : arr)
-        if (i == 0)
-            zeroCount++;
-    if (zeroCount > 1)
+    vector<int> left(n + 1), right(n + 1);
+    left[0] = 1;
+    right[n - 1] = 1;
+    for (int i = 1; i < n; i++)
     {
-        for (int i = 0; i < n; i++)
-            arr[i] = 0;
-        return arr;
+        left[i] = left[i - 1] * arr[i - 1];
     }
-    else if (zeroCount == 1)
+    for (int i = n - 2; i >= 0; i--)
     {
-        for (int i = 0; i < n; i++)
-        {
-            if (arr[i] != 0)
-                mul2 = mul2 * arr[i];
-        }
-        for (int i = 0; i < n; i++)
-        {
-            if (arr[i] != 0)
-                arr[i] = 0;
-            else
-            {
-                arr[i] =mul2;
-            }
-        }
-        return arr;
+        right[i] = right[i + 1] * arr[i + 1];
     }
-    else
+    for (int i = 0; i < n; i++)
     {
-        for (int i = 0; i < n; i++)
-        {
-
-            mul1 = mul1 * arr[i];
-        }
-        for (int i = 0; i < n; i++)
-        {
-            arr[i] = mul1/arr[i];
-        }
-        return arr;
+        arr[i] = left[i] * right[i];
     }
+    return arr;
 }
 int main()
 {
     vector<int> arr = {-1,1,0,-3,3};
     vector<int> result = multiple(arr);
-    cout<<"Array :- "<<endl;
+    cout << "Array :- " << endl;
     for (auto i : arr)
         cout << i << " ";
     cout << endl;
-   
+
     for (auto i : result)
         cout << i << " ";
     cout << endl;
-   
-
 
     return 0;
 }
