@@ -20,25 +20,44 @@ Booking 2 reserved:      20  20
 Booking 3 reserved:      25  25  25  25
 Total seats:         10  55  45  25  25
 Hence, answer = [10,55,45,25,25]*/
-vector<int> corpFlightBookings(vector<vector<int>> &bookings, int n)
+// vector<int> corpFlightBookings(vector<vector<int>> &bookings, int n)
+// {
+//     int bookingLen = bookings.size();
+//     vector<int> answer(n, 0);
+//     for (int i = 0; i < bookingLen; i++)
+//     {
+//         vector<int> temp = bookings[i];
+//         for (int i = temp[0] - 1; i < temp[1]; i++)
+//         {
+//             answer[i] = answer[i] + temp[2];
+//         }
+//     }
+//     return answer;
+// }
+vector<int> corpFlightBookings(vector<vector<int>> &a, int n)
 {
-    int bookingLen = bookings.size();
-    vector<int>answer(n,0);
-    for(int i=0;i<bookingLen;i++){
-        vector<int>temp=bookings[i];
-        for(int i=temp[0]-1;i<temp[1];i++){
-            answer[i]=answer[i]+temp[2];
-        }
+    vector<int> res(n, 0);
+    for (int i = 0; i < a.size(); i++)
+    {
+        res[a[i][0] - 1] += a[i][2];
+        if (a[i][1] < n)
+            res[a[i][1]] -= a[i][2];
     }
-    return answer;
+    for (int i = 1; i < n; i++)
+    {
+        res[i] += res[i - 1];
+    }
+    return res;
 }
+
 int main()
 {
-    vector<vector<int>> bookings={{1,2,10},{2,2,15},{2,5,25}};
+    vector<vector<int>> bookings = {{1, 2, 10}, {2, 3, 20}, {2, 5, 25}};
     int n = 5;
-    vector<int>answer=corpFlightBookings(bookings,n);
-    for(auto i :answer){
-        cout<<i<<" ";
+    vector<int> answer = corpFlightBookings(bookings, n);
+    for (auto i : answer)
+    {
+        cout << i << " ";
     }
-    cout<<endl;
+    cout << endl;
 }
