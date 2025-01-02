@@ -13,47 +13,90 @@ Explanation:
 The bookstore owner keeps themselves not grumpy for the last 3 minutes.
 The maximum number of customers that can be satisfied = 1 + 1 + 1 + 1 + 7 + 5 = 16.*/
 
+// int maxSatisfied(vector<int> &customers, vector<int> &grumpy, int minutes)
+// {
+//     int notGrumpySum = 0;
+//     int n = grumpy.size();
+//     for (int i = 0; i < n; i++)
+//     {
+//         if (grumpy[i] == 0)
+//         {
+//             notGrumpySum += customers[i];
+//         }
+//     }
+
+//     int prevLossGrumpy = 0;
+//     for (int i = 0; i < minutes; i++)
+//     {
+//         if (grumpy[i] == 1)
+//             prevLossGrumpy += customers[i];
+//     }
+//     int maxiSum = prevLossGrumpy;
+//     int i = 1;
+//     int j = minutes;
+//     while (j < n)
+//     {
+//         if (grumpy[j] == 1)
+//         {
+//             prevLossGrumpy = prevLossGrumpy + customers[j];
+//         }
+//         if (grumpy[i - 1] == 1)
+//             prevLossGrumpy=prevLossGrumpy - customers[i - 1];
+//         maxiSum = max(maxiSum, prevLossGrumpy);
+//         i++;
+//         j++;
+//     }
+//     return notGrumpySum + maxiSum;
+// }
+
+// Another approach
+
 int maxSatisfied(vector<int> &customers, vector<int> &grumpy, int minutes)
 {
-    int notGrumpySum = 0;
-    int n = grumpy.size();
-    for (int i = 0; i < n; i++)
-    {
-        if (grumpy[i] == 0)
-        {
-            notGrumpySum += customers[i];
-        }
-    }
-
-    int prevLossGrumpy = 0;
+    int n = customers.size();
+    int prevSum = 0;
     for (int i = 0; i < minutes; i++)
     {
         if (grumpy[i] == 1)
-            prevLossGrumpy += customers[i];
+        {
+            prevSum += customers[i];
+        }
     }
-    int maxiSum = prevLossGrumpy;
+    int maxSum = prevSum;
+    int maxIdx=-1;
     int i = 1;
     int j = minutes;
     while (j < n)
     {
         if (grumpy[j] == 1)
-        {
-            prevLossGrumpy = prevLossGrumpy + customers[j];
-        }
+            prevSum = prevSum + customers[j];
         if (grumpy[i - 1] == 1)
-            prevLossGrumpy=prevLossGrumpy - customers[i - 1];
-        maxiSum = max(maxiSum, prevLossGrumpy);
+            prevSum = prevSum - customers[i - 1];
+        if(prevSum>maxSum){
+            maxSum=prevSum;
+            maxIdx=i;
+        }
         i++;
         j++;
     }
-    return notGrumpySum + maxiSum;
+    //inserting zero in grupy in window
+    for(int i=maxIdx;i<maxIdx+minutes;i++){
+        grumpy[i]=0;
+    }
+    int ans=0;
+    for(int i=0;i<n;i++){
+        if(grumpy[i]==0){
+            ans+=customers[i];
+        }
+    }
+    return ans;
 }
 int main()
 {
     vector<int> customers = {1, 0, 1, 2, 1, 1, 7, 5};
     vector<int> grumpy = {0, 1, 0, 1, 0, 1, 0, 1};
-    int ans=maxSatisfied(customers,grumpy,3);
-    cout<<ans;
+    int ans = maxSatisfied(customers, grumpy, 3);
+    cout << ans;
 
     return 0;
 }
