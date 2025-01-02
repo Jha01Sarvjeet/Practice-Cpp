@@ -63,7 +63,7 @@ int maxSatisfied(vector<int> &customers, vector<int> &grumpy, int minutes)
         }
     }
     int maxSum = prevSum;
-    int maxIdx=-1;
+    int maxIdx=0;
     int i = 1;
     int j = minutes;
     while (j < n)
@@ -93,9 +93,9 @@ int maxSatisfied(vector<int> &customers, vector<int> &grumpy, int minutes)
 }
 int main()
 {
-    vector<int> customers = {1, 0, 1, 2, 1, 1, 7, 5};
-    vector<int> grumpy = {0, 1, 0, 1, 0, 1, 0, 1};
-    int ans = maxSatisfied(customers, grumpy, 3);
+    vector<int> customers = {1};
+    vector<int> grumpy = {0};
+    int ans = maxSatisfied(customers, grumpy, 1);
     cout << ans;
 
     return 0;
