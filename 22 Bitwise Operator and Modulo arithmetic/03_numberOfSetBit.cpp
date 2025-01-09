@@ -12,9 +12,23 @@ using namespace std;
 // }
 
 //Using built in function
+
+// int noOfSet(int n){
+//     return __builtin_popcount(n);
+// }
+
+
+//Brian Kernighan's Algorithm
+
 int noOfSet(int n){
-    return __builtin_popcount(n);
+    int countSetBit=0;
+    while(n){
+        countSetBit++;
+        n=n & (n-1);
+    }
+    return  countSetBit;
 }
+
 int main(){
     int n;
     cout<<"enter number"<<endl;
