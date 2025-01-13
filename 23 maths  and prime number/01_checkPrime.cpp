@@ -2,9 +2,18 @@
 #include <iostream>
 using namespace std;
 /*to check that the number is prime or not*/
+// bool primeOrNot(int n){
+//     if(n==1)return false;
+//     for(int i=2;i<n;i++){
+//         if(n%i==0)return false;
+        
+//     }
+//     return true;
+// }
+
 bool primeOrNot(int n){
     if(n==1)return false;
-    for(int i=2;i<n;i++){
+    for(int i=2;i<=sqrt(n);i++){
         if(n%i==0)return false;
         
     }
