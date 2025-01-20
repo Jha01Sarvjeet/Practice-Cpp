@@ -22,11 +22,18 @@ int main()
     a.next = &b;
     b.next = &c;
     c.next = &d;
-    cout << a.val << " " << endl;
-    cout << b.val << " " << endl;
-    cout << c.val << " " << endl;
-    (a.next)->val = 70;
-    cout << b.val << " " << endl;
+    // cout << a.val << " " << endl;
+    // cout << b.val << " " << endl;
+    // cout << c.val << " " << endl;
+    // (a.next)->val = 70;
+    // cout << b.val << " " << endl;
     // print value of d
-    cout << (((a.next)->next)->next)->val;
+    // cout << (((a.next)->next)->next)->val;
+    //printig linked list
+
+    Node temp=a;
+    while(temp.next!=NULL){
+        cout<<temp.val<<" ";
+        temp=*(temp.next);
+    }
 }
