@@ -12,16 +12,25 @@ public:
         this->next = NULL;
     }
 };
+// void display(Node *head)
+// {
+
+//     while (head != NULL)
+//     {
+
+//         cout << head->val << " ";
+//         head = head->next;
+//     }
+//     cout<<endl;
+// }
+// recursive function for display
+
 void display(Node *head)
 {
-
-    while (head != NULL)
-    {
-
-        cout << head->val << " ";
-        head = head->next;
-    }
-    cout<<endl;
+    if(head==NULL)return;
+    cout << head->val << " ";
+    display(head->next);
+    
 }
 int sizeOfLL(Node *head)
 {
@@ -29,7 +38,7 @@ int sizeOfLL(Node *head)
     while (head != NULL)
     {
         count++;
-        head=head->next;
+        head = head->next;
     }
     return count;
 }
@@ -46,5 +55,5 @@ int main()
     Node *head = a;
     display(head);
     int siz = sizeOfLL(head);
-    cout << "size of Linked list is " << siz << endl;
+    cout <<endl<<"size of Linked list is " << siz << endl;
 }
