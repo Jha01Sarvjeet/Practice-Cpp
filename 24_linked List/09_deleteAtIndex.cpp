@@ -117,6 +117,10 @@ public:
         {
            deleteAtHead();
         }
+          else if(size==idx)
+        {
+           deleteAtTail();
+        }
         else{
             Node *temp=head;
             int count=1;
@@ -159,14 +163,14 @@ int main()
     ll.display();
     // cout << "size-->" << ll.size << endl;
     
-    ll.deleteAtHead();
+    // ll.deleteAtHead();
+    // ll.display();
+    // ll.deleteAtTail();
+    // ll.display();
+    ll.deleteAtIndex(4);
     ll.display();
-    ll.deleteAtTail();
-    ll.display();
-    ll.deleteAtIndex(-50);
-    ll.display();
-    ll.deleteAtIndex(20);
-    ll.display();
-    ll.deleteAtIndex(20);
-    ll.display();
+    // ll.deleteAtIndex(20);
+    // ll.display();
+    // ll.deleteAtIndex(20);
+    // ll.display();
 }
