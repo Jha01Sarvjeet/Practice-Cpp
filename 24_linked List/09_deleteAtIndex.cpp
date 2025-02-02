@@ -108,9 +108,9 @@ public:
     }
     void deleteAtIndex(int idx)
     {
-        if (size == 0)
+        if (size <= 0 || idx>size)
         {
-            cout << "empty ll " << endl;
+            cout << "invalid index  " << endl;
             return;
         }
         else if(size==1)
@@ -163,10 +163,10 @@ int main()
     ll.display();
     ll.deleteAtTail();
     ll.display();
-    ll.deleteAtIndex(2);
+    ll.deleteAtIndex(-50);
     ll.display();
-    ll.deleteAtIndex(2);
+    ll.deleteAtIndex(20);
     ll.display();
-    ll.deleteAtIndex(2);
+    ll.deleteAtIndex(20);
     ll.display();
 }
