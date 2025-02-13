@@ -141,15 +141,28 @@ public:
     /*Given the head of a singly linked list, return the middle node of the linked list.
     If there are two middle nodes, return the second middle node. 876*/
     
-    void middleNode(Node* head){
-        Node* temp=head;
-        int count=0;
+    //first approach 
+
+    // void middleNode(Node* head){
+    //     Node* temp=head;
+    //     int count=0;
         
-        while(count<size/2 && temp->next!=NULL){
-            temp=temp->next;
-            count++;
+    //     while(count<size/2 && temp->next!=NULL){
+    //         temp=temp->next;
+    //         count++;
+    //     }
+    //     cout<<temp->value<<endl;
+    // }
+    //another approach
+
+    void middleNode(Node* head){
+        Node* slow=head;
+        Node * fast=head;
+        while(fast!=NULL && fast->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
         }
-        cout<<temp->value<<endl;
+        cout<<slow->value<<endl;
     }
 
     void display()
@@ -177,6 +190,8 @@ int main()
     ll.display();
     // cout << "size-->" << ll.size << endl;
     ll.insertAtTail(100);
+    ll.display();
+    ll.insertAtTail(200);
     ll.display();
     // ll.deleteNode(ll.head->next);
     // ll.display();
