@@ -165,32 +165,34 @@ public:
         cout<<slow->value<<endl;
     }
     //first approach
-    void deleetMiddleNode(Node* head){
-        Node *temp=head;
-        int count=1;
-        while(count<size/2){
-            temp=temp->next;
-            count++;
-        }
-        size--;
-        temp->next=temp->next->next;
-        
-    }
-
     // void deleetMiddleNode(Node* head){
-    //     Node *temp=NULL;
-    //     Node* slow=head;
-    //     Node * fast=head->next;
-    //     while(fast!=NULL && fast->next!=NULL){
-    //         temp=slow;
-    //         slow=slow->next;
-    //         fast=fast->next->next;
+    //     Node *temp=head;
+    //     int count=1;
+    //     while(count<size/2){
+    //         temp=temp->next;
+    //         count++;
     //     }
-
-    //    temp->next=slow->next;
-    //    delete slow;
-    //    size--;
+    //     size--;
+    //     temp->next=temp->next->next;
+        
     // }
+
+    void deletMiddleNode(Node* head){
+        Node *temp=NULL;
+        Node* slow=head;
+        Node * fast=head;
+        temp=slow;
+        if(head->next==NULL){
+            head=NULL;
+        }
+        while(fast!=NULL && fast->next!=NULL){
+            temp=slow;
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        temp->next=temp->next->next;
+        size--;
+    }
 
     void display()
     {
@@ -212,21 +214,21 @@ int main()
     ll.display();
   
     // cout << "size-->" << ll.size << endl;
-    ll.insertAtHead(1);
-    ll.display();
+    // ll.insertAtHead(1);
+    // ll.display();
 
     // cout << "size-->" << ll.size << endl;
     ll.insertAtTail(10);
     ll.display();
     // cout << "size-->" << ll.size << endl;
-    // ll.insertAtTail(100);
-    // ll.display();
-    // ll.insertAtTail(200);
-    // ll.display();
+    ll.insertAtTail(100);
+    ll.display();
+    ll.insertAtTail(200);
+    ll.display();
     // ll.deleteNode(ll.head->next);
     // ll.display();
     // ll.middleNode(ll.head);
     // ll.display();
-    ll.deleetMiddleNode(ll.head);
+    ll.deletMiddleNode(ll.head);
     ll.display();
 }
