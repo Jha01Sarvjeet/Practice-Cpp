@@ -54,28 +54,59 @@ public:
             size++;
         }
     }
-    void display(){
-        Node*temp=head;
-        while(temp!=NULL){
-            cout<<temp->value<<" ";
-            temp=temp->next;
+    void display()
+    {
+        Node *temp = head;
+        while (temp != NULL)
+        {
+            cout << temp->value << " ";
+            temp = temp->next;
         }
-        cout<<endl;
+        cout << endl;
     }
-    void removeNthnodeFromEnd(int n){
-        int nodefromstart=size-n+1;
-        Node * temp=head;
-        int count=1;
-        if(n==size){
-            head=head->next;
-            size--;
-        }
-        while(count<nodefromstart-1){
-            temp=temp->next;
+    // first approach
+
+    // void removeNthnodeFromEnd(int n){
+    //     int nodefromstart=size-n+1;
+    //     Node * temp=head;
+    //     int count=1;
+    //     if(n==size){
+    //         head=head->next;
+    //         size--;
+    //     }
+    //     while(count<nodefromstart-1){
+    //         temp=temp->next;
+    //         count++;
+    //     }
+    //     temp->next=temp->next->next;
+
+    // }
+    // another approach
+    void removeNthnodeFromEnd(int n)
+    {
+        Node *slow = head;
+        Node *fast = head;
+        int count = 0;
+        while (count < n)
+        {
+            fast = fast->next;
             count++;
         }
-        temp->next=temp->next->next;
+        if (fast == NULL)
+        {
+            head = head->next;
 
+        }
+        else
+        {
+            while (fast->next != NULL)
+            {
+                slow = slow->next;
+                fast = fast->next;
+            }
+
+            slow->next = slow->next->next;
+        }
     }
 };
 
@@ -92,9 +123,8 @@ int main()
     // ll.insertAtTail(10);
     // ll.display();
     // cout << "size-->" << ll.size << endl;
-    // ll.insertAtTail(100);
-    // ll.display();
-    ll.removeNthnodeFromEnd(2);
+    ll.insertAtTail(100);
     ll.display();
-    
+    ll.removeNthnodeFromEnd(3);
+    ll.display();
 }
