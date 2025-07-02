@@ -1,16 +1,25 @@
-//stack implemented using vector
 #include<bits/stdc++.h>
 #include <iostream>
 using namespace std;
+class Node{
+    public:
+    int value;
+    Node* next;
+    Node(int n){
+        this->value=n;
+        this->next=NULL;
+    }
+};
 class Stack{
     public:
-    vector<int>arr;
+    Node* head;
     
-    // Stack(){
-    //     idx=-1;
-    // }
+    Stack(){
+        head=NULL;
+    }
     void push(int n){
-        arr.push_back(n);
+       Node* temp=new Node(n);
+
     }
     void pop(){
         if(arr.size()==0){
@@ -20,7 +29,7 @@ class Stack{
     }
     int top(){
         if(arr.size()==0){
-            cout<<"soprry stack is empty!"<<endl;
+            cout<<"sorry stack is empty!"<<endl;
         }
         return arr[arr.size()-1];
     }
