@@ -1,53 +1,77 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
-class Node{
-    public:
+class Node
+{
+public:
     int value;
-    Node* next;
-    Node(int n){
-        this->value=n;
-        this->next=NULL;
+    Node *next;
+    Node(int n)
+    {
+        this->value = n;
+        this->next = NULL;
     }
 };
-class Stack{
-    public:
-    Node* head;
-    
-    Stack(){
-        head=NULL;
-    }
-    void push(int n){
-       Node* temp=new Node(n);
+class Stack
+{
+public:
+    Node *head;
+    int size;
 
+    Stack()
+    {
+        head = NULL;
+        size = 0;
     }
-    void pop(){
-        if(arr.size()==0){
-            cout<<"stack is empty"<<endl;
+    void push(int n)
+    {
+        Node *temp = new Node(n);
+
+        temp->next = head;
+        head = temp;
+        size++;
+    }
+    void pop()
+    {
+        if (head == NULL)
+        {
+            cout << "stack is empty" << endl;
         }
-        arr.pop_back();
+        head = head->next;
+        size--;
     }
-    int top(){
-        if(arr.size()==0){
-            cout<<"sorry stack is empty!"<<endl;
+    int top()
+    {
+        if (head == NULL)
+        {
+            cout << "sorry stack is empty!" << endl;
         }
-        return arr[arr.size()-1];
+        return head->value;
     }
-    bool isEmpty(){
-        if(arr.size()==0)return true;
-        else return false;
+    bool isEmpty()
+    {
+        if (size == 0)
+            return true;
+        else
+            return false;
     }
-    int size(){
-        return arr.size();
-    }
-    void display(){
-        for (auto i :arr){
-            cout<<i<<" ";
+    // int size()
+    // {
+    //     return size;
+    // }
+    void display()
+    {
+        Node *temp = head;
+        while (temp)
+        {
+            cout << temp->value << " ";
+            temp=temp->next;
         }
         cout<<endl;
     }
 };
-int main(){
+int main()
+{
     Stack st;
     st.push(5);
     st.push(4);
@@ -55,12 +79,10 @@ int main(){
     st.push(2);
     st.push(1);
     st.display();
-    cout<<"top: "<<st.top()<<endl;
-    cout<<"size: "<<st.size()<<endl;
-    cout<<"empty or not "<<st.isEmpty()<<endl;
+    cout << "top: " << st.top() << endl;
+    cout << "size: " << st.size << endl;
+    cout << "empty or not " << st.isEmpty() << endl;
     // st.push(20);
     st.pop();
     st.display();
-    
-
 }
