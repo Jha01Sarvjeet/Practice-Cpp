@@ -36,20 +36,24 @@ int infixEvaluation(string str)
             {
                 opr.push(ch);
             }
-            else if (opr.top() == '(' )
+            else if (opr.top() == '(')
             {
                 opr.push(ch);
             }
             else if (ch == ')')
             {
-                int val2 = val.top();
-                val.pop();
-                int val1 = val.top();
-                val.pop();
-                int ans = calculate(val1, val2, opr.top());
+                while (opr.top() != '(')
+                {
+                    int val2 = val.top();
+                    val.pop();
+                    int val1 = val.top();
+                    val.pop();
+                    int ans = calculate(val1, val2, opr.top());
+                    opr.pop();
+                    // opr.pop();
+                    val.push(ans);
+                }
                 opr.pop();
-                opr.pop();
-                val.push(ans);
             }
             else if (prio(ch) > prio(opr.top()))
             {
