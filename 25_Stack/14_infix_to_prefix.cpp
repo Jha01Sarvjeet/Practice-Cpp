@@ -14,7 +14,7 @@ string calculate(string val1, string val2, char ch)
     s.push_back(ch);
     return s + val1 + val2;
 }
-string infixEvaluation(string str)
+string infixToPrefix(string str)
 {
     stack<string> val;
     stack<char> opr;
