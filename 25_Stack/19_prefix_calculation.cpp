@@ -38,5 +38,5 @@ int prefixCalculation(string str)
 int main()
 {
     string s="-/*+79483";
-    cout<<infixCalculation(s)<<endl;
+    cout<<prefixCalculation(s)<<endl;
 }
